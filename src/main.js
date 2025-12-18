@@ -85,7 +85,7 @@ function analyzeSalesData(data, options) {
   data.purchase_records.forEach((record) => {
     const seller = sellerIndex[record.seller_id];
     seller.sales_count++;
-    seller.revenue += record.total_amount;
+    seller.revenue += record.total_amount - record.total_discount;
 
     record.items.forEach((item) => {
       const product = productIndex[item.sku];
